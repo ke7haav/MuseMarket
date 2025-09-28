@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* MuseMarket Design System - Decentralized Creator Marketplace
+Inspired by Gumroad + OpenSea + Patreon aesthetics
+All colors MUST be HSL for proper theme switching.
+*/
+
+@layer base {
+  :root {
+    /* Core Brand Colors - OpenSea-inspired Professional Theme */
+    --background: 0 0% 100%; /* white */
+    --foreground: 222.2 84% 4.9%; /* slate-950 */
+
+    --card: 0 0% 100%; /* white */
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Primary - Blue (OpenSea style) */
+    --primary: 221.2 83.2% 53.3%; /* blue-600 */
+    --primary-dark: 221.2 83.2% 43.3%; /* blue-700 */
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary - Purple */
+    --secondary: 262.1 83.3% 57.8%; /* purple-500 */
+    --secondary-dark: 262.1 83.3% 47.8%; /* purple-600 */
+    --secondary-foreground: 210 40% 98%;
+
+    /* Neutral System */
+    --muted: 210 40% 96%; /* slate-100 */
+    --muted-foreground: 215.4 16.3% 46.9%; /* slate-500 */
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+
+    --destructive: 0 84.2% 60.2%; /* red-500 */
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%; /* slate-200 */
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%; /* matches primary */
+
+    /* Custom MuseMarket Tokens - Professional */
+    --gradient-primary: linear-gradient(135deg, hsl(221.2 83.2% 43.3%), hsl(221.2 83.2% 53.3%));
+    --gradient-secondary: linear-gradient(135deg, hsl(262.1 83.3% 47.8%), hsl(262.1 83.3% 57.8%));
+    --gradient-hero: linear-gradient(135deg, hsl(221.2 83.2% 43.3%) 0%, hsl(221.2 83.2% 53.3%) 50%, hsl(262.1 83.3% 57.8%) 100%);
+    
+    /* Shadows & Effects - More subtle */
+    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+    --shadow-card-hover: 0 10px 25px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-glow: 0 0 0 1px hsl(221.2 83.2% 53.3% / 0.1), 0 0 20px hsl(221.2 83.2% 53.3% / 0.15);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Mode - Professional */
+    --background: 222.2 84% 4.9%; /* slate-950 */
+    --foreground: 210 40% 98%; /* slate-50 */
+
+    --card: 222.2 84% 4.9%; /* slate-950 */
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary stays vibrant in dark mode */
+    --primary: 221.2 83.2% 53.3%;
+    --primary-dark: 221.2 83.2% 43.3%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary stays vibrant */
+    --secondary: 262.1 83.3% 57.8%;
+    --secondary-dark: 262.1 83.3% 47.8%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215.4 16.3% 16.9%; /* slate-800 */
+    --muted-foreground: 215.4 16.3% 65.1%; /* slate-400 */
+
+    --accent: 215.4 16.3% 16.9%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215.4 16.3% 16.9%; /* slate-800 */
+    --input: 215.4 16.3% 16.9%;
+    --ring: 221.2 83.2% 53.3%;
+
+    /* Dark mode shadows */
+    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
+    --shadow-card-hover: 0 10px 25px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+    --shadow-glow: 0 0 0 1px hsl(221.2 83.2% 53.3% / 0.2), 0 0 20px hsl(221.2 83.2% 53.3% / 0.3);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  /* Button Variants - Professional */
+  .btn-primary {
+    @apply bg-[hsl(var(--primary))] text-primary-foreground 
+           rounded-lg px-6 py-3 font-semibold transition-all duration-200 
+           hover:bg-[hsl(var(--primary-dark))] hover:shadow-lg active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply bg-[hsl(var(--secondary))] text-secondary-foreground 
+           rounded-lg px-6 py-3 font-semibold transition-all duration-200 
+           hover:bg-[hsl(var(--secondary-dark))] hover:shadow-lg active:scale-95;
+  }
+  
+  .btn-outline {
+    @apply border border-[hsl(var(--primary))] text-[hsl(var(--primary))] bg-transparent 
+           rounded-lg px-6 py-3 font-semibold transition-all duration-200 
+           hover:bg-[hsl(var(--primary))] hover:text-primary-foreground active:scale-95;
+  }
+  
+  .btn-ghost {
+    @apply text-muted-foreground bg-transparent rounded-lg px-4 py-2 font-medium 
+           transition-all duration-200 hover:bg-muted hover:text-foreground;
+  }
+
+  /* Card Variants - Professional */
+  .card-product {
+    @apply bg-card rounded-xl shadow-[var(--shadow-card)] border border-border 
+           transition-all duration-200 hover:shadow-[var(--shadow-card-hover)] 
+           hover:scale-[1.02] hover:-translate-y-1 cursor-pointer;
+  }
+  
+  .card-feature {
+    @apply bg-card rounded-xl p-6 shadow-[var(--shadow-card)] border border-border 
+           transition-all duration-200 hover:shadow-[var(--shadow-card-hover)];
+  }
+
+  /* Input Styles - Professional */
+  .input-primary {
+    @apply bg-card border border-border rounded-lg px-4 py-3 
+           focus:ring-2 focus:ring-[hsl(var(--ring))] focus:border-transparent 
+           transition-all duration-200;
+  }
+
+  /* Gradient Text - Professional */
+  .text-gradient {
+    @apply bg-gradient-to-r from-[hsl(var(--primary-dark))] to-[hsl(var(--primary))] 
+           bg-clip-text text-transparent;
+  }
+  
+  .text-hero-gradient {
+    @apply bg-[var(--gradient-hero)] bg-clip-text text-transparent;
+  }
+
+  /* Animation Classes */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
